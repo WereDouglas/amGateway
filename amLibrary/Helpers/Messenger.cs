@@ -70,10 +70,10 @@ namespace amLibrary.Helpers
                         int times = 1;
                         for (int i = 0; i < times; i++)
                         {
-                            coms.Comms.SendMessage(pdu);                       
+                            coms.Comms.SendMessage(pdu);
                             _message = new Message(parent);
                             _message.Update(id, "T");
-                         
+
                             sent = true;
                         }
                         sent = true;
@@ -129,7 +129,7 @@ namespace amLibrary.Helpers
                     comm.SendMessage(pdu);
                     _message = new Message(parent);
                     _message.Update(id, "T");
-                    
+
                     sent = true;
                 }
                 sent = true;
@@ -203,20 +203,48 @@ namespace amLibrary.Helpers
         }
 
 
-        public static void disconnected(string network, string comms)
+        public static bool disconnected()
         {
-            cmbCOMS = comms;
-            comm = new GsmCommMain(cmbCOMS, 9600, 150);
-
-            try
+            _network = new Network(null);
+            foreach (CommNetwork coms in primes)
             {
-                comm.Close();
+                try
+                {
+                    coms.Comms.Close();
+                    Console.WriteLine("disconnected");
+                    _network.UpdateStatus(coms.Names, "disconnected");
+                    connect = true;
+                }
+                catch (Exception r)
+                {
+                    Console.WriteLine("comm has failed to disconnect");
+                    connect = false;
+                }
             }
-            catch (Exception r)
-            {
-                Console.WriteLine("comm has failed to disconnect");
+            return connect;
+        }
+        static bool connect;
+        public static bool connecter()
+        {
+          
+            _network = new Network(null);
 
+            foreach (CommNetwork coms in primes)
+            {
+                try
+                {
+                    coms.Comms.Open();
+                    _network.UpdateStatus(coms.Names, "connected");
+                    connect=true;
+                }
+                catch (Exception r)
+                {
+                    Console.WriteLine("comm has failed to disconnect");
+                    connect = false;
+
+                }
             }
+            return connect;
         }
 
     }

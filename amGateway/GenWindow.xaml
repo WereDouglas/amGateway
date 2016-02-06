@@ -29,7 +29,7 @@
             </ScrollViewer>
         </Grid>
         <Button Content="Close" Style="{StaticResource CancelButton}"  HorizontalAlignment="Right" Margin="0,61,10,0" VerticalAlignment="Top" Width="85" Click="CloseClick" Height="26"/>
-        <TextBox HorizontalAlignment="Right" x:Name="interval" Height="26" Margin="0,5,8,0" TextWrapping="Wrap" Text="5"  VerticalAlignment="Top" Width="87" LostFocus="interval_LostFocus" TextChanged="interval_TextChanged"/>
+        <TextBox HorizontalAlignment="Right" Visibility="Hidden" x:Name="interval" Height="26" Margin="0,5,8,0" TextWrapping="Wrap" Text="5"  VerticalAlignment="Top" Width="87" LostFocus="interval_LostFocus" TextChanged="interval_TextChanged"/>
         <Label Content="interval"  HorizontalAlignment="Right" Margin="0,5,100,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

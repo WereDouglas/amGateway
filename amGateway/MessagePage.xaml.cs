@@ -43,7 +43,7 @@ namespace amGateway
             InitializeComponent();
             intervals = Convert.ToInt32(interval.Text);
             Refresh();
-            Timer timer = new Timer(1000 * 60 * intervals);
+            Timer timer = new Timer(1000 * 60);
             timer.Elapsed += timer_Elapsed;
             timer.Start();
         }

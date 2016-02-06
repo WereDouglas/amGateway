@@ -75,7 +75,7 @@ namespace amGateway
                 MessageBox.Show("you have no last ID please insert/reset the last ID !");
             }
 
-            Timer timer = new Timer(1000 * 60 * intervals);
+            Timer timer = new Timer(1000 * 60 * 2);
             timer.Elapsed += timer_Elapsed;
             timer.Start();
 
@@ -433,24 +433,60 @@ namespace amGateway
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ConnectDevice();
+            if (Messenger.connecter())
+            {
+
+                App.Current.Dispatcher.Invoke((Action)delegate()
+                {
+                    InputBlock.Text = InputBlock.Text + Environment.NewLine + "Ports/modems connected " + DateTime.Now.ToString();
+                    Scroller.ScrollToBottom();
+                    InputBlock.ScrollToEnd();
+                });
+
+            }
+            else
+            {
+
+                App.Current.Dispatcher.Invoke((Action)delegate()
+                {
+                    InputBlock.Text = InputBlock.Text + Environment.NewLine + "modem connection process failed " + DateTime.Now.ToString();
+                    Scroller.ScrollToBottom();
+                    InputBlock.ScrollToEnd();
+                });
+
+
+
+            }
         }
 
         private void refreshClick(object sender, RoutedEventArgs e)
         {
 
-            port2.Content = "";
-            _networkList = new ObservableCollection<Network>(App.am.Networks);
-            _network = new Network(null);
-            foreach (Network n in _networkList)
+
+            if (Messenger.disconnected())
             {
 
-                Messenger.disconnected(n.Names, n.Comm);
-                _network.UpdateStatus(n.Names, "disconnected");
-                port2.Content = Environment.NewLine + " " + n.Names + " disconnected";
-
+                App.Current.Dispatcher.Invoke((Action)delegate()
+                {
+                    InputBlock.Text = InputBlock.Text + Environment.NewLine + "Ports disconnected " + DateTime.Now.ToString();
+                    Scroller.ScrollToBottom();
+                    InputBlock.ScrollToEnd();
+                });
 
             }
+            else {
+
+                App.Current.Dispatcher.Invoke((Action)delegate()
+                {
+                    InputBlock.Text = InputBlock.Text + Environment.NewLine + "disconnection process failed " + DateTime.Now.ToString();
+                    Scroller.ScrollToBottom();
+                    InputBlock.ScrollToEnd();
+                });
+            
+            
+            
+            }
+               
         }
 
         private void CloseClick(object sender, RoutedEventArgs e)

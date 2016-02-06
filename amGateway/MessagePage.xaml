@@ -57,7 +57,7 @@
         </Grid>
         <TextBlock HorizontalAlignment="Left" Margin="87,9,0,0" Name="port" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Height="61" Width="148"/>
         <TextBlock HorizontalAlignment="Left" Margin="240,8,0,0" x:Name="portToday" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Height="61" Width="129"/>
-        <TextBox HorizontalAlignment="Right" Name="interval" Height="26" Margin="0,45,10,0" TextWrapping="Wrap" Text="2"  VerticalAlignment="Top" Width="114" LostFocus="interval_LostFocus"/>
+        <TextBox HorizontalAlignment="Right" Visibility="Collapsed" Name="interval" Height="26" Margin="0,45,10,0" TextWrapping="Wrap" Text="2"  VerticalAlignment="Top" Width="114" LostFocus="interval_LostFocus"/>
         <Label Content="interval" HorizontalAlignment="Right" Margin="0,45,129,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
