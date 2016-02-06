@@ -1,0 +1,63 @@
+﻿<Page x:Class="amGateway.MessagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
+      mc:Ignorable="d"
+	Title="Daily weather records" MinWidth="800" MinHeight="500" Background="#FFDEE5FA" Height="417" >
+    <Page.Resources>
+
+
+
+    </Page.Resources>
+    <Grid Margin="0,0,0,10">
+        <Label Content="" x:Name="internet" HorizontalAlignment="Left" Margin="883,9,0,0" VerticalAlignment="Top" Width="85"/>
+        <DataGrid x:Name="dtGrid" Margin="10,74,10,64" CanUserReorderColumns="True" CanUserResizeColumns="True" 
+        	CanUserSortColumns="True"  CanUserAddRows="True"
+        	CanUserDeleteRows="True" AutoGenerateColumns="False" HorizontalGridLinesBrush="WhiteSmoke" VerticalGridLinesBrush="#FFE7E8EC" SelectionChanged="dtGrid_SelectionChanged" EnableColumnVirtualization="True" IsReadOnly="False"  >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn.Header>
+
+                        <CheckBox  x:Name="chkSelectAll" Content="check" Click="CheckBox_Checked" />
+
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <CheckBox x:Name="chkDiscontinue" IsChecked="{Binding values, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Contact" Binding="{Binding Numbers}" />
+                <DataGridTextColumn Header="Message" Binding="{Binding Messages}" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Dor}" />
+                <DataGridTextColumn Header="Sent" Binding="{Binding Sent}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox HorizontalAlignment="Right" Height="26" Margin="0,45,473,0" TextWrapping="Wrap" Text=" " x:Name="lastID" VerticalAlignment="Top" Width="73"/>
+        <Label Content="Last ID" HorizontalAlignment="Right" Margin="0,45,551,0" VerticalAlignment="Top"/>
+        <Button Style="{StaticResource SaveButton}" Content="Reset" HorizontalAlignment="Right" Margin="0,44,415,0" VerticalAlignment="Top" Width="53" RenderTransformOrigin="0.629,0.442" Height="26" Click="Button_Click_1"/>
+        <Button Style="{StaticResource CancelButton}" Content="Delete" Margin="0,48,886,0" VerticalAlignment="Top" Click="Button_Click_2" Height="26" RenderTransformOrigin="0.116,0.646" HorizontalAlignment="Right" Width="72"/>
+        <TextBox x:Name="txtFilter" TextChanged="txtFilter_TextChanged" Height="21" VerticalAlignment="Top" HorizontalAlignment="Right" Width="194" Margin="0,48,180,0" />
+        <Label Content="Find" HorizontalAlignment="Right" Margin="0,45,379,0" VerticalAlignment="Top"/>
+        <Grid Height="66" VerticalAlignment="Bottom" Margin="10,0">
+            <ScrollViewer Name="Scroller" Margin="0" Background="#FF030607">
+                <StackPanel>
+                    <TextBox  ScrollViewer.VerticalScrollBarVisibility="Auto" Background="#FF080809" Foreground="White" FontFamily="Consolas" Name="InputBlock" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Height="60" Width="920" HorizontalAlignment="Left" />
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="87,9,0,0" Name="port" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Height="61" Width="148"/>
+        <TextBlock HorizontalAlignment="Left" Margin="240,8,0,0" x:Name="portToday" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Height="61" Width="129"/>
+        <TextBox HorizontalAlignment="Right" Name="interval" Height="26" Margin="0,45,10,0" TextWrapping="Wrap" Text="2"  VerticalAlignment="Top" Width="114" LostFocus="interval_LostFocus"/>
+        <Label Content="interval" HorizontalAlignment="Right" Margin="0,45,129,0" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

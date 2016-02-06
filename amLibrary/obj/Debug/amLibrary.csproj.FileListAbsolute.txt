@@ -1,0 +1,12 @@
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\amLibrary.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\amLibrary.pdb
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\GSMCommServer.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\GSMCommShared.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\GSMCommunication.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\PDUConverter.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\System.Data.SqlServerCe.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\System.Data.SqlServerCe.Entity.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\obj\Debug\amLibrary.dll
+C:\Users\DOUGLAS\documents\visual studio 2013\Projects\amGateway\amLibrary\obj\Debug\amLibrary.pdb

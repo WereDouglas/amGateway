@@ -1,0 +1,35 @@
+﻿<Window x:Class="amGateway.GenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="amMessaging" MinHeight="700" MinWidth="800" WindowState="Maximized" Icon="image/amhealthlogo.png" Height="812.5"  >
+    <Grid Margin="0,0,0,1" MinHeight="600">
+
+        <DockPanel LastChildFill="False" Margin="1,92,1,10" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" MinHeight="500" Grid.ColumnSpan="2"  >
+            <Frame x:Name="_mainFrame" NavigationUIVisibility="Hidden" HorizontalContentAlignment="Center" VerticalContentAlignment="Stretch" BorderBrush="#FF0F509F" DockPanel.Dock="Top" ScrollViewer.HorizontalScrollBarVisibility="Auto" MaxHeight="600"  Margin="0,0,0,39" />
+
+        </DockPanel>
+        <Button Content="Connect modem(s)" Style="{StaticResource SaveButton}" HorizontalAlignment="Left" Margin="171,56,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click" Height="26" RenderTransformOrigin="0.544,1.781"/>
+        <Label Content="info" x:Name="port2" HorizontalAlignment="Right" Margin="0,6,146,0" VerticalAlignment="Top" RenderTransformOrigin="-3.644,0.889" Width="174" Height="81" FontSize="10" FontWeight="Bold"/>
+        <Button Content="Messages" Style="{StaticResource OtherButton}" HorizontalAlignment="Left" Margin="11,57,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" Height="26"/>
+        <Button Content="Settings" Style="{StaticResource OtherButton}" HorizontalAlignment="Left" Margin="91,57,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3" Height="26"/>
+        <Label Content="val" Name="lastSMS" HorizontalAlignment="Right" Margin="0,35,10,0" VerticalAlignment="Top" Width="85" RenderTransformOrigin="0.629,0.5"/>
+        <Button Content="Disconnect modems" Style="{StaticResource CancelButton}"  HorizontalAlignment="Left" Margin="309,56,0,0" VerticalAlignment="Top" Width="125" Click="refreshClick" Height="26" Grid.ColumnSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="11,5,0,0" VerticalAlignment="Top" Width="190" Source="image/amhealthlogos.png"/>
+        <Grid Height="66" VerticalAlignment="Bottom" Margin="1,0,1,1" Grid.ColumnSpan="2" >
+            <ScrollViewer Name="Scroller" Margin="1,0,0,0" Background="#FF080809">
+                <Grid HorizontalAlignment="Center" Width="749">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="104*"/>
+                        <ColumnDefinition Width="81*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox  ScrollViewer.VerticalScrollBarVisibility="Auto" Background="#FF080809" Foreground="White" FontFamily="Consolas" Name="InputBlock" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Height="66" MinWidth="379" Margin="-10,0,10,0" />
+                    <TextBox  ScrollViewer.VerticalScrollBarVisibility="Auto" Background="#FF080809" Foreground="White" FontFamily="Consolas" Name="InputBlock2" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Height="66" Margin="1,1,2,1" Grid.Column="1" />
+
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <Button Content="Close" Style="{StaticResource CancelButton}"  HorizontalAlignment="Right" Margin="0,61,10,0" VerticalAlignment="Top" Width="85" Click="CloseClick" Height="26"/>
+        <TextBox HorizontalAlignment="Right" x:Name="interval" Height="26" Margin="0,5,8,0" TextWrapping="Wrap" Text="5"  VerticalAlignment="Top" Width="87" LostFocus="interval_LostFocus" TextChanged="interval_TextChanged"/>
+        <Label Content="interval"  HorizontalAlignment="Right" Margin="0,5,100,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

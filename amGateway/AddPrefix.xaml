@@ -1,0 +1,96 @@
+﻿<Window x:Class="amGateway.AddPrefix"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddPrefix" Height="300" Width="571.805" ResizeMode="NoResize" WindowStyle="None" Background="#FFB9C6F0">
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBlock}" x:Key="CalendarText">
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="CalendarButton">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="20"/>
+        </Style>
+        <Style TargetType="{x:Type DataGrid}" x:Key="infoGrid">
+            <Setter Property="RowBackground" Value="#C5DFFB"/>
+            <Setter Property="AlternatingRowBackground" Value="White"/>
+            <Setter Property="CanUserReorderColumns" Value="True"/>
+            <Setter Property="CanUserResizeColumns" Value="True"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="CanUserResizeRows" Value="True"/>
+            <Setter Property="FrozenColumnCount" Value="1"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="WhiteSmoke"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#FFE7E8EC"/>
+
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="SaveButton">
+            <Setter Property="Background" Value="#3C8DBC"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="20"/>
+        </Style>
+        <Style TargetType="{x:Type Button}" x:Key="CancelButton">
+            <Setter Property="Background" Value="#C37981"/>
+            <Setter Property="BorderBrush" Value="#0000"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="20"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <DataGrid  AutoGenerateColumns="False"		x:Name="dtGrid"    Margin="0,71,10,23" Grid.Column="0" HorizontalAlignment="Right" Width="489"  >
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#A5A5A5"  />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Style>
+                <StaticResource ResourceKey="infoGrid"/>
+            </DataGrid.Style>
+
+            <DataGrid.Columns >
+
+
+                <DataGridTemplateColumn Header="Prefix">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock  Style="{StaticResource CalendarText}" Text="{Binding Pre}" />
+
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button   Click="DeleteButton_Click">Delete</Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Prefix" HorizontalAlignment="Left" Margin="312,10,0,0" VerticalAlignment="Top" Width="64"/>
+        <TextBox HorizontalAlignment="Left" Height="23" x:Name="pref" Margin="76,41,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="300" RenderTransformOrigin="-1.893,1.016"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="12,37,0,0" VerticalAlignment="Top" Width="53" Height="27"/>
+        <Button IsDefault="True" Style="{StaticResource SaveButton}" x:Name="btnDialogOk" Click="btnDialogOk_Click" MinWidth="60" Margin="387,36,0,0" Content="Create" HorizontalAlignment="Left" Width="83" Background="#FF2799F0" Foreground="White" Height="30" VerticalAlignment="Top" BorderBrush="{x:Null}" RenderTransformOrigin="2.362,-1.035"/>
+        <Button IsCancel="True" Style="{StaticResource CancelButton}" MinWidth="60" Content="_Cancel" Margin="478,37,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="76" Click="Button_Click" BorderBrush="{x:Null}"/>
+        <Label Content="" Name="providers" HorizontalAlignment="Left" Margin="76,10,0,0" VerticalAlignment="Top" Width="236"/>
+
+    </Grid>
+</Window>

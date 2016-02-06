@@ -1,0 +1,85 @@
+﻿<Page x:Class="amGateway.SettingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"       
+      mc:Ignorable="d"
+	Title="Daily weather records" MinWidth="800" MinHeight="500" Background="#FFDBE0F2"  >
+    <Page.Resources>
+
+
+
+    </Page.Resources>
+    <Grid Margin="0,0,0,10">
+        <Label Content="" x:Name="internet" HorizontalAlignment="Left" Margin="883,9,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label Content="info" x:Name="port" HorizontalAlignment="Left" Margin="413,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.644,0.889" Width="546" Height="34"/>
+        <Label Content="NETWORK" HorizontalAlignment="Right" Margin="0,47,313,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Right" x:Name="comms" Height="32" Margin="0,45,379,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="67"/>
+        <Label Content="COMM" HorizontalAlignment="Right" Margin="0,46,453,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Right" x:Name="network" Height="32" Margin="0,47,173,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130"/>
+        <Label Content="info" x:Name="info" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.644,0.889" Width="384" Height="80"/>
+        <DataGrid x:Name="dtGridNetwork" Margin="10,93,10,10" CanUserReorderColumns="True" CanUserResizeColumns="True" 
+        	CanUserResizeRows="False" CanUserSortColumns="True" AutoGenerateColumns="False" HorizontalGridLinesBrush="WhiteSmoke" VerticalGridLinesBrush="#FFE7E8EC" SelectionChanged="dtGrid_SelectionChanged" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn.Header>
+
+                        <CheckBox  x:Name="chkSelectAll1" Content="check" Click="CheckBox_Checked" />
+
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+
+                        <DataTemplate>
+
+                            <CheckBox x:Name="chkDiscontinue" IsChecked="{Binding values, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  />
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Header="Network" Binding="{Binding Names}" />
+                <DataGridTextColumn Header="COM port" Binding="{Binding Comm}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+
+
+
+                <DataGridTemplateColumn Header="Prefix">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button Click="PrefixButton_Click" Content="Prefixes"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button Click="EditCommButton_Click" Content="Edit comm port"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Button Click="DeleteButton_Click" Content="Delete"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="detect" Style="{StaticResource OtherButton}" HorizontalAlignment="Right" Margin="0,47,98,0" VerticalAlignment="Top" Width="70" Click="Detect_Click" Height="32" RenderTransformOrigin="0.108,-1.011"/>
+        <Button  Style="{StaticResource SaveButton}" Content="save" x:Name="save" HorizontalAlignment="Right" Margin="0,48,18,0" VerticalAlignment="Top" Width="67" Click="save_Click" Height="32"/>
+    </Grid>
+</Page>
